@@ -18,56 +18,58 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice) {
-    const computerChoice = getComputerChoice();
-    switch (humanChoice) {
-        case "rock":
-            if (computerChoice == "Scissors") {
-                para.textContent = "You Won! Rock beats Scissors";
-                divbtns.appendChild(para);
-                humanScore++;
-            } else if (computerChoice == "Paper") {
-                    para.textContent = "You Lose! Paper beats Rock";
+    if (humanScore < 5 && computerScore < 5) {
+        const computerChoice = getComputerChoice();
+        switch (humanChoice) {
+            case "rock":
+                if (computerChoice == "Scissors") {
+                    para.textContent = "You Won! Rock beats Scissors";
                     divbtns.appendChild(para);
-                    computerScore++;
-            } else {
-                    para.textContent = "Tie! You both chose Rock";
+                    humanScore++;
+                } else if (computerChoice == "Paper") {
+                        para.textContent = "You Lose! Paper beats Rock";
+                        divbtns.appendChild(para);
+                        computerScore++;
+                } else {
+                        para.textContent = "Tie! You both chose Rock";
+                        divbtns.appendChild(para);
+                    }
+                break;
+
+            case "paper":
+                if (computerChoice == "Rock") {
+                    para.textContent = "You Won! Paper beats Rock";
                     divbtns.appendChild(para);
+                    humanScore++;
+                } else if (computerChoice == "Scissors") {
+                        para.textContent = "You Lose! Scissors beats Paper";
+                        divbtns.appendChild(para);
+                        computerScore++;
+                } else {
+                        para.textContent = "Tie! You both chose Paper";
+                        divbtns.appendChild(para);
                 }
-            break;
+                break;
 
-        case "paper":
-            if (computerChoice == "Rock") {
-                para.textContent = "You Won! Paper beats Rock";
-                divbtns.appendChild(para);
-                humanScore++;
-            } else if (computerChoice == "Scissors") {
-                    para.textContent = "You Lose! Scissors beats Paper";
+            case "scissors":
+                if (computerChoice == "Paper") {
+                    para.textContent = "You Won! Scissors beats Paper";
                     divbtns.appendChild(para);
-                    computerScore++;
-            } else {
-                    para.textContent = "Tie! You both chose Paper";
-                    divbtns.appendChild(para);
+                    humanScore++;
+                } else if (computerChoice == "Rock") {
+                        para.textContent = "You Lose! Rock beats Scissors";
+                        divbtns.appendChild(para);
+                        computerScore++
+                } else {
+                        para.textContent = "Tie! You both chose Scissors";
+                        divbtns.appendChild(para);
+                }
+                break;
+
+            default:
+                break;
             }
-            break;
-
-        case "scissors":
-            if (computerChoice == "Paper") {
-                para.textContent = "You Won! Scissors beats Paper";
-                divbtns.appendChild(para);
-                humanScore++;
-            } else if (computerChoice == "Rock") {
-                    para.textContent = "You Lose! Rock beats Scissors";
-                    divbtns.appendChild(para);
-                    computerScore++
-            } else {
-                    para.textContent = "Tie! You both chose Scissors";
-                    divbtns.appendChild(para);
-            }
-            break;
-
-        default:
-            break;
-        }
+    }
 }
 
 rockbtn.textContent = "Rock";
@@ -106,11 +108,8 @@ function result() {
         if (humanScore > computerScore) {
             para.textContent = "Congrats, you won!";
             divres.appendChild(para);
-        } else if (humanScore < computerScore) {
-            para.textContent = "how tf did u lose?";
-            divres.appendChild(para);
         } else {
-            para.textContent = "wtf a tie?";
+            para.textContent = "how tf did u lose?";
             divres.appendChild(para);
         }
     }
