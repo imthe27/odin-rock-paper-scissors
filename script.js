@@ -3,7 +3,10 @@ const rockbtn = document.createElement("button");
 const paperbtn = document.createElement("button");
 const scissorsbtn = document.createElement("button");
 const divbtns = document.createElement("div");
+const divscore = document.createElement("div");
 const para = document.createElement("p");
+const hScore = document.createElement("p");
+const cScore = document.createElement("p");
 const body = document.querySelector("body");
 let humanScore = 0;
 let computerScore = 0;
@@ -75,13 +78,23 @@ body.appendChild(divbtns);
 
 rockbtn.addEventListener("click", () => {
     playRound("rock");
+    hScore.textContent = `Player: ${humanScore}.`;
+    cScore.textContent = `Computer: ${computerScore}.`;
 });
 paperbtn.addEventListener("click", () => {
     playRound("paper");
+    hScore.textContent = `Player: ${humanScore}.`;
+    cScore.textContent = `Computer: ${computerScore}.`;
 });
 scissorsbtn.addEventListener("click", () => {
     playRound("scissors");
+    hScore.textContent = `Player: ${humanScore}.`;
+    cScore.textContent = `Computer: ${computerScore}.`;
 });
+
+divscore.appendChild(hScore);
+divscore.appendChild(cScore);
+body.appendChild(divscore);
 
 //if (humanScore > computerScore) {
 //        para.textContent = "Congrats, you won!";
